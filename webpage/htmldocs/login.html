@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../cssdocs/login.css">
+</head>
+<body>
+<div id="demo">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" name="mail" id="emailInput" placeholder="Enter your email"> <br>
+        <input type="password" name="password" id="passwordInput" placeholder="Enter your password"> <br>
+        <input type="button" value="Submit" onclick="submitForm()"> <br>
+    </form>
+</div>
+<script>
+    function submitForm() {
+        var email = document.getElementById('emailInput').value;
+        var password = document.getElementById('passwordInput').value;
+        if (email && password) {
+            var userData = {
+                "email": email,
+                "password": password
+            };
+            var jsonData = JSON.stringify(userData);
+            localStorage.setItem('userData', jsonData);
+            // Redirect to the menu page
+            window.location.href = "menu.html";
+        } else {
+            alert('Please provide both email and password.');
+        }
+    }
+</script>
+</body>
+</html>
+
